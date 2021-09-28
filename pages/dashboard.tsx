@@ -1,13 +1,13 @@
 import Sidebar from "@/components/Sidebar";
 import type { NextPage } from "next";
 
-const Home: NextPage = () => {
+const Dashboard: NextPage = () => {
   return (
     <main className="flex h-screen dark:bg-gray-800">
       <Sidebar />
-      <h1 className="">Index</h1>
+      <h1 className="">Dashboard</h1>
     </main>
   );
 };
 
-export default Home;
+export default Dashboard;
