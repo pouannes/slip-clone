@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarLink from "./SidebarLink";
 import { HomeIcon, AcademicCapIcon, UserIcon } from "@heroicons/react/outline";
 import LogoutButton from "./LogoutButton";

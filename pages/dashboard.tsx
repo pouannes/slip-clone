@@ -1,11 +1,29 @@
+import CourseList from "@/components/Dashboard";
 import Sidebar from "@/components/Sidebar";
+import { Course } from "@/types/Course";
 import type { NextPage } from "next";
+
+const dummyData: Course[] = [
+  {
+    name: "Brand New Course",
+    status: "draft",
+  },
+  {
+    name: "Learn how to use maps in React (working title)",
+    status: "draft",
+  },
+];
 
 const Dashboard: NextPage = () => {
   return (
     <main className="flex h-screen dark:bg-gray-800">
       <Sidebar />
-      <h1 className="">Dashboard</h1>
+      <div className="w-full px-4 py-6">
+        <header className="mb-10">
+          <h1 className="text-3xl">Your courses</h1>
+        </header>
+        <CourseList courses={dummyData} />
+      </div>
     </main>
   );
 };

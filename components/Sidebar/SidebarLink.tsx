@@ -1,5 +1,6 @@
-import { useRouter } from "next/dist/client/router";
 import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
 type Props = {
   href?: string;
@@ -13,15 +14,16 @@ const SidebarLink = ({ href, icon, label }: Props) => {
   const selected = href === router.pathname;
 
   return (
-    <a
-      href={href}
-      className={`flex items-center px-2 py-2 rounded-md dark:hover:bg-gray-800 ${
-        selected ? "dark:bg-gray-700" : ""
-      }`}
-    >
-      {icon}
-      <span>{label}</span>
-    </a>
+    <Link href={href ?? ""}>
+      <a
+        className={`flex items-center px-2 py-2 rounded-md dark:hover:bg-gray-800 ${
+          selected ? "dark:bg-gray-700" : ""
+        }`}
+      >
+        {icon}
+        <span>{label}</span>
+      </a>
+    </Link>
   );
 };
 
