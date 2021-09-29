@@ -1,13 +1,30 @@
+import { useState, useEffect } from "react";
+import { supabase } from "@/utils/supabaseClient";
+import Auth from "@/components/Auth";
+import Account from "@/components/Account";
 import Sidebar from "@/components/Sidebar";
-import type { NextPage } from "next";
 
-const Home: NextPage = () => {
+export default function Home() {
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    setSession(supabase.auth.session());
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
+
   return (
     <main className="flex h-screen dark:bg-gray-800">
       <Sidebar />
-      <h1 className="">Index</h1>
+      <div className="container" style={{ padding: "50px 0 100px 0" }}>
+        {!session ? (
+          <Auth />
+        ) : (
+          <Account key={session.user.id} session={session} />
+        )}
+      </div>
     </main>
   );
-};
-
-export default Home;
+}

@@ -1,8 +1,10 @@
+import { Button } from "../core";
+
 export const AddCourseButton = () => {
   return (
-    <button className="px-4 py-2 mt-8 text-sm bg-gray-900 rounded-md ">
+    <Button color="accent" className="mt-8 text-sm ring-offset-gray-800">
       Add Course
-    </button>
+    </Button>
   );
 };
 
