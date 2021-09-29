@@ -6,32 +6,47 @@ type Props = {
 };
 
 const CourseList = ({ courses }: Props) => {
-  const thClass = "px-6 py-3";
+  const spacing = "px-6 py-3";
   return (
-    <table className="min-w-full border-separate divide-none ">
-      <thead className="text-sm font-light tracking-widest bg-gray-700 ">
+    <table className="min-w-full border-separate rounded-lg shadow-2xl divide-none">
+      <thead className="text-sm font-light tracking-wider dark:bg-gray-700 ">
         <tr className="text-left uppercase ">
-          <th className="px-6 py-3 rounded-tl-lg">Course</th>
-          <th>Language</th>
-          <th className="">Status</th>
-          <th className=""></th>
-          <th className="rounded-tr-lg"></th>
+          <th className={`${spacing} rounded-tl-lg`}>Course</th>
+          <th className={spacing}>Language</th>
+          <th className={spacing}>Status</th>
+          <th className={spacing}></th>
+          <th className={`${spacing} rounded-tr-lg`}></th>
         </tr>
       </thead>
       <tbody>
-        {courses.map((course) => (
-          <tr key={course.name}>
-            <td>{course.name}</td>
-            <td></td>
-            <td>{course.status}</td>
-            <td>
+        {courses.map((course, index) => (
+          <tr
+            key={course.name}
+            className={`${
+              index % 2 === 0 ? "dark:bg-gray-800" : "dark:bg-gray-790"
+            }`}
+          >
+            <td
+              className={`${spacing} ${
+                index === courses.length - 1 ? "rounded-bl-lg" : ""
+              }`}
+            >
+              {course.name}
+            </td>
+            <td className={spacing}></td>
+            <td className={spacing}>{course.status}</td>
+            <td className={spacing}>
               <Link href="/">
-                <a>View</a>
+                <a className="dark:text-blue-500 hover:underline">View</a>
               </Link>
             </td>
-            <td>
+            <td
+              className={`${spacing} ${
+                index === courses.length - 1 ? "rounded-br-lg" : ""
+              }`}
+            >
               <Link href="/">
-                <a>Edit</a>
+                <a className="dark:text-blue-500 hover:underline">Edit</a>
               </Link>
             </td>
           </tr>

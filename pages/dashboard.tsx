@@ -12,6 +12,10 @@ const dummyData: Course[] = [
     name: "Learn how to use maps in React (working title)",
     status: "draft",
   },
+  {
+    name: "Very long title Very long titleVery long titleVery long titleVery long titleVery long titleVery long title",
+    status: "draft",
+  },
 ];
 
 const Dashboard: NextPage = () => {
