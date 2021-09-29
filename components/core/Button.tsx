@@ -19,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {loading ? (
         <LoadingSpinner className={"h-5 w-5 absolute left-1"} />
-      ) : null}
+      ) : undefined}
       {children}
     </button>
   );

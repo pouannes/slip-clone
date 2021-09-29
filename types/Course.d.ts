@@ -1,4 +1,6 @@
 export type Course = {
-  name: string;
-  status: "draft";
+  id: string;
+  title: string;
+  published_status: "draft";
+  language?: string;
 };

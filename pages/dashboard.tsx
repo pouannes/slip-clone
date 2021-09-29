@@ -1,24 +1,44 @@
+import { useState, useEffect } from "react";
+import type { NextPage } from "next";
+
 import { CourseList, AddCourseButton } from "@/components/Dashboard";
 import Sidebar from "@/components/Sidebar";
 import { Course } from "@/types/Course";
-import type { NextPage } from "next";
-
-const dummyData: Course[] = [
-  {
-    name: "Brand New Course",
-    status: "draft",
-  },
-  {
-    name: "Learn how to use maps in React (working title)",
-    status: "draft",
-  },
-  {
-    name: "Very long title Very long titleVery long titleVery long titleVery long titleVery long titleVery long title",
-    status: "draft",
-  },
-];
+import { supabase } from "@/utils/supabaseClient";
 
 const Dashboard: NextPage = () => {
+  const [loading, setLoading] = useState(false);
+  const [courses, setCourses] = useState<null | Course[]>(null);
+
+  const fetchCourses = async () => {
+    try {
+      setLoading(true);
+      const user = supabase.auth.user();
+
+      let { data, error, status } = await supabase
+        .from("courses")
+        .select(`id, title, published_status, language`)
+        .eq("author_user_id", user.id);
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        console.log(data);
+        setCourses(data);
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
   return (
     <main className="flex h-screen dark:bg-gray-800">
       <Sidebar />
@@ -26,7 +46,7 @@ const Dashboard: NextPage = () => {
         <header className="mb-10">
           <h1 className="text-3xl">Your courses</h1>
         </header>
-        <CourseList courses={dummyData} />
+        {courses !== null ? <CourseList courses={courses} /> : null}
         <AddCourseButton />
       </div>
     </main>

@@ -21,7 +21,7 @@ const CourseList = ({ courses }: Props) => {
       <tbody>
         {courses.map((course, index) => (
           <tr
-            key={course.name}
+            key={course.id}
             className={`${
               index % 2 === 0 ? "dark:bg-gray-800" : "dark:bg-gray-790"
             }`}
@@ -31,10 +31,10 @@ const CourseList = ({ courses }: Props) => {
                 index === courses.length - 1 ? "rounded-bl-lg" : ""
               }`}
             >
-              {course.name}
+              {course.title}
             </td>
             <td className={spacing}></td>
-            <td className={spacing}>{course.status}</td>
+            <td className={spacing}>{course.published_status}</td>
             <td className={spacing}>
               <Link href="/">
                 <a className="dark:text-blue-500 hover:underline">View</a>
