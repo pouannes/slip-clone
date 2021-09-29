@@ -27,6 +27,7 @@ module.exports = {
         accentDarkLight: "#1A5789",
         gray: {
           790: "#273245",
+          950: "#0A101E",
         },
       },
     },

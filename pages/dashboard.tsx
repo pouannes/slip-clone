@@ -25,7 +25,6 @@ const Dashboard: NextPage = () => {
       }
 
       if (data) {
-        console.log(data);
         setCourses(data);
       }
     } catch (error) {
@@ -37,7 +36,6 @@ const Dashboard: NextPage = () => {
 
   useEffect(() => {
     fetchCourses();
-    console.log("setting up subscription");
     const mySubscription = supabase
       .from("courses")
       .on("INSERT", (payload) =>
@@ -46,15 +44,14 @@ const Dashboard: NextPage = () => {
       .subscribe();
 
     return () => {
-      console.log("removing subscription");
       supabase.removeSubscription(mySubscription);
     };
   }, []);
 
   return (
-    <main className="flex h-screen dark:bg-gray-800">
+    <main className="flex h-screen dark:bg-gray-950">
       <Sidebar />
-      <div className="w-full px-4 py-6">
+      <div className="w-full px-8 py-6 pt-10 mx-6 mt-20 border border-gray-700 dark:bg-gray-900 rounded-t-3xl">
         <header className="mb-10">
           <h1 className="text-3xl">Your courses</h1>
         </header>

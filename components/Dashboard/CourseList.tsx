@@ -8,7 +8,7 @@ type Props = {
 const CourseList = ({ courses }: Props) => {
   const spacing = "px-6 py-3";
   return (
-    <table className="min-w-full border-separate rounded-lg shadow-2xl divide-none">
+    <table className="min-w-full border border-separate rounded-lg divide-none dark:border-gray-700">
       <thead className="text-sm font-light tracking-wider dark:bg-gray-700 ">
         <tr className="text-left uppercase ">
           <th className={`${spacing} rounded-tl-lg`}>Course</th>

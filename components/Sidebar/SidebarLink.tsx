@@ -17,7 +17,7 @@ const SidebarLink = ({ href, icon, label }: Props) => {
     <Link href={href ?? ""}>
       <a
         className={`flex items-center px-2 py-2 rounded-md dark:hover:bg-gray-800 ${
-          selected ? "dark:bg-gray-700" : ""
+          selected ? "dark:bg-gray-790 dark:hover:bg-gray-790" : ""
         }`}
       >
         {icon}
