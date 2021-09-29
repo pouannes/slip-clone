@@ -45,7 +45,7 @@ const CourseList = ({ courses }: Props) => {
                 index === courses.length - 1 ? "rounded-br-lg" : ""
               }`}
             >
-              <Link href="/">
+              <Link href={`/${course.id}`}>
                 <a className="dark:text-blue-500 hover:underline">Edit</a>
               </Link>
             </td>

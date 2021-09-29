@@ -1,12 +1,11 @@
-import SidebarLink from "./SidebarLink";
 import { HomeIcon, AcademicCapIcon, UserIcon } from "@heroicons/react/outline";
-import LogoutButton from "./LogoutButton";
 import SlipIcon from "@/public/slip-icon.svg";
+import SidebarLink from "./SidebarLink";
 
-const Sidebar = (): JSX.Element => {
+const CourseSidebar = (): JSX.Element => {
   const iconClass = "w-6 h-6 mr-3";
   return (
-    <nav className="flex flex-col w-full h-full px-2 text-sm max-w-[256px] dark:bg-gray-950 rounded-r-3xl">
+    <nav className="flex flex-col h-full px-2 w-full max-w-[256px] dark:bg-gray-950 rounded-r-3xl">
       <SlipIcon className="h-10 my-2" />
       <div className="flex flex-col gap-4 pt-10">
         <SidebarLink
@@ -19,14 +18,9 @@ const Sidebar = (): JSX.Element => {
           icon={<AcademicCapIcon className={iconClass} />}
           label="Purchased Courses"
         />
-        <SidebarLink
-          icon={<UserIcon className={iconClass} />}
-          label="pierreouannes@gmail.com"
-        />
-        <LogoutButton iconClass={iconClass} />
       </div>
     </nav>
   );
 };
 
-export default Sidebar;
+export default CourseSidebar;

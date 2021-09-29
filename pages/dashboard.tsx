@@ -51,7 +51,7 @@ const Dashboard: NextPage = () => {
   return (
     <main className="flex h-screen dark:bg-gray-950">
       <Sidebar />
-      <div className="w-full px-8 py-6 pt-10 mx-6 mt-20 border border-gray-700 dark:bg-gray-900 rounded-t-3xl">
+      <div className="w-full px-8 py-6 pt-10 mx-6 border border-gray-700 mt-14 dark:bg-gray-900 rounded-t-3xl">
         <header className="mb-10">
           <h1 className="text-3xl">Your courses</h1>
         </header>
