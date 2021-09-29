@@ -7,16 +7,26 @@ export const AddCourseButton = (props) => {
   const [loading, setLoading] = useState(false);
   const handleCreateNewCourse = async () => {
     try {
+      setLoading(true);
       const user = supabase.auth.user();
 
-      setLoading(true);
-      const { data, error } = await supabase
+      // create course and first lesson
+      const { data: course, error } = await supabase
         .from("courses")
         .insert([{ author_user_id: user.id }]);
 
-      console.log(data);
       if (error) {
         throw error;
+      }
+
+      if (course) {
+        const { data: lesson, error } = await supabase
+          .from("lessons")
+          .insert([{ course_id: course[0].id, lesson_order: 0 }]);
+
+        if (error) {
+          throw error;
+        }
       }
     } catch (error) {
       alert(error.message);

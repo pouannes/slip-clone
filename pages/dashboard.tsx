@@ -37,6 +37,18 @@ const Dashboard: NextPage = () => {
 
   useEffect(() => {
     fetchCourses();
+    console.log("setting up subscription");
+    const mySubscription = supabase
+      .from("courses")
+      .on("INSERT", (payload) =>
+        setCourses((prevCourses) => [...prevCourses, payload.new])
+      )
+      .subscribe();
+
+    return () => {
+      console.log("removing subscription");
+      supabase.removeSubscription(mySubscription);
+    };
   }, []);
 
   return (
