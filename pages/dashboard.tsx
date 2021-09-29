@@ -1,4 +1,4 @@
-import CourseList from "@/components/Dashboard";
+import { CourseList, AddCourseButton } from "@/components/Dashboard";
 import Sidebar from "@/components/Sidebar";
 import { Course } from "@/types/Course";
 import type { NextPage } from "next";
@@ -27,6 +27,7 @@ const Dashboard: NextPage = () => {
           <h1 className="text-3xl">Your courses</h1>
         </header>
         <CourseList courses={dummyData} />
+        <AddCourseButton />
       </div>
     </main>
   );
