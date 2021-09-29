@@ -10,7 +10,7 @@ module.exports = {
       current: "currentColor",
       black: colors.black,
       white: colors.white,
-      gray: colors.trueGray,
+      gray: colors.blueGray,
       indigo: colors.indigo,
       red: colors.rose,
       yellow: colors.amber,
@@ -26,7 +26,7 @@ module.exports = {
         // really gotta work on better naming haha
         accentDarkLight: "#1A5789",
         gray: {
-          790: "#303030",
+          790: "#273245",
         },
       },
     },
