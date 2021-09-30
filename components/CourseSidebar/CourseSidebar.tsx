@@ -19,13 +19,13 @@ const CourseSidebar = ({
 }: Props): JSX.Element => {
   const iconClass = "w-6 h-6 mr-3";
   return (
-    <nav className="flex flex-col h-full px-2 w-full max-w-[256px] dark:bg-gray-950 rounded-r-3xl">
+    <nav className="flex flex-col max-h-full h-[fit-content] px-2 w-full max-w-[256px] dark:bg-gray-950 rounded-r-3xl ">
       <Link href="/dashboard">
         <a>
           <SlipIcon className="h-10 my-2" />
         </a>
       </Link>
-      <div className="flex flex-col gap-4 pt-10">
+      <div className="flex flex-col h-full gap-4 mt-10 overflow-y-auto">
         {lessons?.map((lesson, index) => (
           <SidebarLesson
             key={lesson.id}
@@ -35,11 +35,11 @@ const CourseSidebar = ({
             index={index}
           />
         ))}
-        <AddLessonButton
-          courseId={courseId}
-          newLessonOrder={lessons?.length + 1}
-        />
       </div>
+      <AddLessonButton
+        courseId={courseId}
+        newLessonOrder={lessons?.length + 1}
+      />
     </nav>
   );
 };

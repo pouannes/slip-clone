@@ -41,7 +41,7 @@ export const AddLessonButton = ({
     <Button
       {...props}
       color="accent"
-      className="mt-8 text-sm dark:ring-offset-gray-800"
+      className="mt-4 mb-10 text-sm dark:ring-offset-gray-800"
       onClick={handleCreateNewLesson}
       loading={loading}
     >
