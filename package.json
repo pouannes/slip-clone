@@ -13,6 +13,7 @@
     "@heroicons/react": "^1.0.4",
     "@supabase/supabase-js": "^1.23.1",
     "@svgr/webpack": "^5.5.0",
+    "@tailwindcss/forms": "^0.3.4",
     "next": "11.1.2",
     "next-themes": "^0.0.15",
     "react": "17.0.2",
